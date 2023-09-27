@@ -1,0 +1,14 @@
+name: Check
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      name: 'Using'
+      - uses: actions/checkout@v3
+      - run: make setup
+      - run: make start
+      name: 'Run tests'
+      - run: make test
+      name: 'Run linter'
+      - run: make init
