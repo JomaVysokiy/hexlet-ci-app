@@ -4,11 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      name: 'Using'
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: npm
       - run: make setup
       - run: make start
-      name: 'Run tests'
       - run: make test
-      name: 'Run linter'
       - run: make init
